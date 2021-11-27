@@ -1,0 +1,27 @@
+ #Turn Rewrite Engine On
+RewriteEngine On
+
+#grant http authorization
+RewriteCond %{HTTP:Authorization} ^(.+)$
+RewriteRule .* - [E=HTTP_AUTHORIZATION:%{HTTP:Authorization}]
+
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteRule ^([^\.]+)$ $1.php [NC,L]
+
+RewriteRule ^login Views/admin/login.php [NC,L]
+RewriteRule ^school Views/admin/school.php [NC,L]
+RewriteRule ^dept Views/admin/dept.php [NC,L]
+RewriteRule ^course Views/admin/courses.php [NC,L]
+RewriteRule ^lecturer Views/admin/lecturers.php [NC,L]
+RewriteRule ^levels Views/admin/getlevels.php [NC,L]
+RewriteRule ^lvlcos Views/admin/getcourseLevel.php [NC,L]
+RewriteRule ^students Views/admin/student.php [NC,L]
+RewriteRule ^enroll Views/admin/enrol.php [NC,L]
+
+
+
+
+
+
+   
+
