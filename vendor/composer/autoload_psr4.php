@@ -6,5 +6,6 @@ $vendorDir = dirname(dirname(__FILE__));
 $baseDir = dirname($vendorDir);
 
 return array(
+    'Medz\\Cors\\' => array($vendorDir . '/medz/cors/src'),
     'App\\' => array($baseDir . '/Controllers'),
 );

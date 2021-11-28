@@ -6,7 +6,15 @@ namespace Composer\Autoload;
 
 class ComposerStaticInit3788c2ba39fdecf92086a64de6b06be9
 {
+    public static $files = array (
+        'e044f3da7a892bf7d8d04992ac00bea7' => __DIR__ . '/..' . '/medz/cors/src/ThinkPHP/injection.php',
+    );
+
     public static $prefixLengthsPsr4 = array (
+        'M' => 
+        array (
+            'Medz\\Cors\\' => 10,
+        ),
         'A' => 
         array (
             'App\\' => 4,
@@ -14,6 +22,10 @@ class ComposerStaticInit3788c2ba39fdecf92086a64de6b06be9
     );
 
     public static $prefixDirsPsr4 = array (
+        'Medz\\Cors\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/medz/cors/src',
+        ),
         'App\\' => 
         array (
             0 => __DIR__ . '/../..' . '/Controllers',
@@ -21,9 +33,6 @@ class ComposerStaticInit3788c2ba39fdecf92086a64de6b06be9
     );
 
     public static $classMap = array (
-        'App\\AdminController' => __DIR__ . '/../..' . '/Controllers/AdminController.php',
-        'App\\Database' => __DIR__ . '/../..' . '/Controllers/Database.php',
-        'App\\util' => __DIR__ . '/../..' . '/Controllers/util.php',
         'Composer\\InstalledVersions' => __DIR__ . '/..' . '/composer/InstalledVersions.php',
     );
 

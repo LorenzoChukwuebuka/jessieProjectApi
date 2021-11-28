@@ -3,5 +3,8 @@
         "psr-4":{
             "App\\":"Controllers/"
         }
+    },
+    "require": {
+        "medz/cors": "^1.5"
     }
 }
