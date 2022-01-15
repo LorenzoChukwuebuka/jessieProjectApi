@@ -18,6 +18,10 @@ RewriteRule ^levels Views/admin/getlevels.php [NC,L]
 RewriteRule ^lvlcos Views/admin/getcourseLevel.php [NC,L]
 RewriteRule ^students Views/admin/student.php [NC,L]
 RewriteRule ^enroll Views/admin/enrol.php [NC,L]
+RewriteRule ^totaldepts Views/admin/totaldepts.php [NC,L]
+RewriteRule ^totalCourse Views/admin/totalCourse.php [NC,L]
+RewriteRule ^totallecturers Views/admin/totallecturers.php [NC,L]
+RewriteRule ^totalstudents Views/admin/totalstudents.php [NC,L]
 
 
 

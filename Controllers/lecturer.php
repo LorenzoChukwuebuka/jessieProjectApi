@@ -1,7 +1,5 @@
 <?php declare (strict_types = 1);
 
-require 'connection.php';
-
 class Lecturer extends Database
 {
     public function getUser($id = 0)

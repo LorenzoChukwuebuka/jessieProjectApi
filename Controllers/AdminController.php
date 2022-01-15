@@ -2,6 +2,7 @@
 namespace App;
 
 use App\Database;
+use App\util;
 
 class AdminController extends Database
 {
@@ -230,7 +231,9 @@ class AdminController extends Database
 
     public function getlevel()
     {
-        $res = $this->db->query("SELECT * FROM `level`");
+        $stmt = $this->db->prepare("SELECT * FROM `level`");
+        $stmt->execute();
+        $res = $stmt->get_result();
         $numRows = $res->num_rows;
 
         if ($numRows > 0) {
@@ -252,7 +255,7 @@ class AdminController extends Database
             $numRow = $checkifUserExists->num_rows;
 
             if ($numRow === 0) {
-                $pass = utilities::generateRand();
+                $pass = util::generateRand();
                 $res = $this->db->query("INSERT INTO `user`( `username`, `password`, `type`) VALUES ('$name','$pass','1')");
 
                 if ($res) {
@@ -370,7 +373,35 @@ class AdminController extends Database
 
     public function enroll()
     {
-      return  exec('c:/Fingerprint/enroll.jar');
+        return exec('c:/Fingerprint/enroll.jar');
+    }
+
+    public function get_total_course()
+    {
+        $sql = $this->db->query("Select ifnull(((select COUNT(`Id`) from `course` )),0) AS total_course");
+        $rw = $sql->fetch_assoc();
+        return $this->out($rw);
+    }
+
+    public function get_total_departments()
+    {
+        $sql = $this->db->query("Select ifnull(((select COUNT(`Id`) from `department` )),0) AS total_depts");
+        $rw = $sql->fetch_assoc();
+        return $this->out($rw);
+    }
+
+    public function get_total_students()
+    {
+        $sql = $this->db->query("Select ifnull(((select COUNT(`Id`) from `students` )),0) AS total_students");
+        $rw = $sql->fetch_assoc();
+        return $this->out($rw);
+    }
+
+    public function get_total_lecturers()
+    {
+        $sql = $this->db->query("Select ifnull(((select COUNT(`Id`) from `user`where username != 'admin' )),0) AS total_lecturers");
+        $rw = $sql->fetch_assoc();
+        return $this->out($rw);
     }
 
 }
