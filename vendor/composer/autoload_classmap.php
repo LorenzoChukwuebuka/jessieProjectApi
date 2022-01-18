@@ -6,5 +6,28 @@ $vendorDir = dirname(dirname(__FILE__));
 $baseDir = dirname($vendorDir);
 
 return array(
+    'App\\AdminController' => $baseDir . '/Controllers/AdminController.php',
+    'App\\Database' => $baseDir . '/Controllers/Database.php',
+    'App\\LecturerController' => $baseDir . '/Controllers/LecturerController.php',
+    'App\\util' => $baseDir . '/Controllers/util.php',
     'Composer\\InstalledVersions' => $vendorDir . '/composer/InstalledVersions.php',
+    'Medz\\Cors\\Cors' => $vendorDir . '/medz/cors/src/Cors.php',
+    'Medz\\Cors\\CorsInitException' => $vendorDir . '/medz/cors/src/CorsInitException.php',
+    'Medz\\Cors\\CorsInterface' => $vendorDir . '/medz/cors/src/CorsInterface.php',
+    'Medz\\Cors\\Laravel\\Middleware\\Cors' => $vendorDir . '/medz/cors/src/Laravel/Middleware/Cors.php',
+    'Medz\\Cors\\Laravel\\Middleware\\ShouldGroup' => $vendorDir . '/medz/cors/src/Laravel/Middleware/ShouldGroup.php',
+    'Medz\\Cors\\Laravel\\Providers\\LaravelServiceProvider' => $vendorDir . '/medz/cors/src/Laravel/Providers/LaravelServiceProvider.php',
+    'Medz\\Cors\\Lumen\\Middleware\\Cors' => $vendorDir . '/medz/cors/src/Lumen/Middleware/Cors.php',
+    'Medz\\Cors\\Lumen\\ServiceProvider' => $vendorDir . '/medz/cors/src/Lumen/ServiceProvider.php',
+    'Medz\\Cors\\PSR\\CorsMiddleware' => $vendorDir . '/medz/cors/src/PSR/CorsMiddleware.php',
+    'Medz\\Cors\\Request' => $vendorDir . '/medz/cors/src/Request.php',
+    'Medz\\Cors\\RequestInterface' => $vendorDir . '/medz/cors/src/RequestInterface.php',
+    'Medz\\Cors\\Response' => $vendorDir . '/medz/cors/src/Response.php',
+    'Medz\\Cors\\ResponseInterface' => $vendorDir . '/medz/cors/src/ResponseInterface.php',
+    'Medz\\Cors\\Slim\\Cors' => $vendorDir . '/medz/cors/src/Slim/Cors.php',
+    'Medz\\Cors\\Swoft\\CorsBean' => $vendorDir . '/medz/cors/src/Swoft/CorsBean.php',
+    'Medz\\Cors\\Swoft\\CorsMiddleware' => $vendorDir . '/medz/cors/src/Swoft/CorsMiddleware.php',
+    'Medz\\Cors\\ThinkPHP\\Hook\\AppInit' => $vendorDir . '/medz/cors/src/ThinkPHP/Hook/AppInit.php',
+    'Medz\\Cors\\ThinkPHP\\Hook\\ResponseSend' => $vendorDir . '/medz/cors/src/ThinkPHP/Hook/ResponseSend.php',
+    'Medz\\Cors\\ThinkPHP\\Injecter' => $vendorDir . '/medz/cors/src/ThinkPHP/Injecter.php',
 );

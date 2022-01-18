@@ -33,7 +33,30 @@ class ComposerStaticInit3788c2ba39fdecf92086a64de6b06be9
     );
 
     public static $classMap = array (
+        'App\\AdminController' => __DIR__ . '/../..' . '/Controllers/AdminController.php',
+        'App\\Database' => __DIR__ . '/../..' . '/Controllers/Database.php',
+        'App\\LecturerController' => __DIR__ . '/../..' . '/Controllers/LecturerController.php',
+        'App\\util' => __DIR__ . '/../..' . '/Controllers/util.php',
         'Composer\\InstalledVersions' => __DIR__ . '/..' . '/composer/InstalledVersions.php',
+        'Medz\\Cors\\Cors' => __DIR__ . '/..' . '/medz/cors/src/Cors.php',
+        'Medz\\Cors\\CorsInitException' => __DIR__ . '/..' . '/medz/cors/src/CorsInitException.php',
+        'Medz\\Cors\\CorsInterface' => __DIR__ . '/..' . '/medz/cors/src/CorsInterface.php',
+        'Medz\\Cors\\Laravel\\Middleware\\Cors' => __DIR__ . '/..' . '/medz/cors/src/Laravel/Middleware/Cors.php',
+        'Medz\\Cors\\Laravel\\Middleware\\ShouldGroup' => __DIR__ . '/..' . '/medz/cors/src/Laravel/Middleware/ShouldGroup.php',
+        'Medz\\Cors\\Laravel\\Providers\\LaravelServiceProvider' => __DIR__ . '/..' . '/medz/cors/src/Laravel/Providers/LaravelServiceProvider.php',
+        'Medz\\Cors\\Lumen\\Middleware\\Cors' => __DIR__ . '/..' . '/medz/cors/src/Lumen/Middleware/Cors.php',
+        'Medz\\Cors\\Lumen\\ServiceProvider' => __DIR__ . '/..' . '/medz/cors/src/Lumen/ServiceProvider.php',
+        'Medz\\Cors\\PSR\\CorsMiddleware' => __DIR__ . '/..' . '/medz/cors/src/PSR/CorsMiddleware.php',
+        'Medz\\Cors\\Request' => __DIR__ . '/..' . '/medz/cors/src/Request.php',
+        'Medz\\Cors\\RequestInterface' => __DIR__ . '/..' . '/medz/cors/src/RequestInterface.php',
+        'Medz\\Cors\\Response' => __DIR__ . '/..' . '/medz/cors/src/Response.php',
+        'Medz\\Cors\\ResponseInterface' => __DIR__ . '/..' . '/medz/cors/src/ResponseInterface.php',
+        'Medz\\Cors\\Slim\\Cors' => __DIR__ . '/..' . '/medz/cors/src/Slim/Cors.php',
+        'Medz\\Cors\\Swoft\\CorsBean' => __DIR__ . '/..' . '/medz/cors/src/Swoft/CorsBean.php',
+        'Medz\\Cors\\Swoft\\CorsMiddleware' => __DIR__ . '/..' . '/medz/cors/src/Swoft/CorsMiddleware.php',
+        'Medz\\Cors\\ThinkPHP\\Hook\\AppInit' => __DIR__ . '/..' . '/medz/cors/src/ThinkPHP/Hook/AppInit.php',
+        'Medz\\Cors\\ThinkPHP\\Hook\\ResponseSend' => __DIR__ . '/..' . '/medz/cors/src/ThinkPHP/Hook/ResponseSend.php',
+        'Medz\\Cors\\ThinkPHP\\Injecter' => __DIR__ . '/..' . '/medz/cors/src/ThinkPHP/Injecter.php',
     );
 
     public static function getInitializer(ClassLoader $loader)
