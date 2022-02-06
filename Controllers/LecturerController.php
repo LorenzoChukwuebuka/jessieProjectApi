@@ -49,9 +49,9 @@ class LecturerController extends Database
         }
     }
 
-    public function get_students_per_course(int $id)
+    public function get_students_per_course(int $id = 0)
     {
-        //get the students offering a particular course unnder a particular lecturer
+        //get the students offering a particular course under a particular lecturer
 
         $sql = $this->db->query(" SELECT student_course.Id, students.name,students.regNum,course.course,course.course_code FROM student_course JOIN students ON students.Id = student_course.student_Id JOIN course ON course.Id = student_course.courseId WHERE student_course.courseId = $id ");
         $numRows = $sql->num_rows;
@@ -63,6 +63,15 @@ class LecturerController extends Database
 
             return $this->out($data);
         }
+    }
+
+    public function attendanceCode(int $courseId, string $attendanceCode)
+    {
+        //get the unique code of the student
+        $res = $this->db->query("SELECT * FROM `students` WHERE `uniqueCode` = '$attendanceCode'");
+        $row = $res->fetch_assoc();
+        $studentId = $row['Id'];
+
     }
 
 }

@@ -25,6 +25,8 @@ RewriteRule ^totalstudents Views/admin/totalstudents.php [NC,L]
 RewriteRule ^getname Views/lecturer/getname.php [NC,L]
 RewriteRule ^attendance Views/lecturer/attendance.php [NC,L]
 RewriteRule ^lectCourse Views/lecturer/lecturercourse.php [NC,L]
+RewriteRule ^studentCourse Views/lecturer/getStudents.php [NC,L]
+
 
 
 

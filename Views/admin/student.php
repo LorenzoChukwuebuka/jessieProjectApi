@@ -26,3 +26,7 @@ if ($api === "POST") {
 if ($api === "GET") {
     echo $student->fetchStudents();
 }
+
+if ($api === "DELETE") {
+    echo $student->delete_student($id);
+}

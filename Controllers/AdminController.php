@@ -255,7 +255,7 @@ class AdminController extends Database
             $numRow = $checkifUserExists->num_rows;
 
             if ($numRow === 0) {
-                $pass = util::generateRand();
+                $pass = util::generateRand(8);
                 $res = $this->db->query("INSERT INTO `user`( `username`, `password`, `type`) VALUES ('$name','$pass','1')");
 
                 if ($res) {
@@ -330,8 +330,9 @@ class AdminController extends Database
         $numRow = $checkifStudentExists->num_rows;
 
         if ($numRow === 0) {
+            $unique = util::generateRand(16);
 
-            $sql = "INSERT INTO `students`(`name`, `regNum`, `dept_Id`, `level_Id`, `date_created`) VALUES ('$name','$regnum','$dept_Id','$levelId',NOW())";
+            $sql = "INSERT INTO `students`(`name`, `regNum`, `dept_Id`, `level_Id`, `date_created`,`uniqueCode`) VALUES ('$name','$regnum','$dept_Id','$levelId',NOW(),'$unique')";
 
             $res = $this->db->query($sql);
             if ($res) {
@@ -341,7 +342,7 @@ class AdminController extends Database
                     $res1 = $this->db->query("INSERT INTO `student_course`(`student_Id`,`courseId`,`date_created`) VALUES ('$studentId','$value',NOW())");
 
                     if ($res1) {
-                        return $this->message('successful');
+                        return $this->message($unique);
                     }
                 }
             }
@@ -369,6 +370,22 @@ class AdminController extends Database
 
             return $this->out($data);
         }
+    }
+
+    public function edit_student(string $name, int $regNum, int $levelId, int $deptId)
+    {
+
+    }
+    public function delete_student(int $id = 0)
+    {
+        $res = $this->db->query("DELETE FROM `students` WHERE `Id` = $id");
+        $res1 = $this->db->query("DELETE FROM `student_course` WHERE `student_Id` = $id");
+        if ($res && $res1) {
+            return $this->message('Deleted');
+        } else {
+            return $this->db->error();
+        }
+
     }
 
     public function enroll()

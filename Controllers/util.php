@@ -1,4 +1,5 @@
 <?php
+declare (strict_types = 1);
 namespace App;
 
 class util
@@ -9,10 +10,10 @@ class util
         return json_decode($data);
     }
 
-    public static function generateRand()
+    public static function generateRand(int $val)
     {
-        $len = 8;
-        $dat = '1234567890ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz!@#$%^&*()_+:"><?/~';
+        $len = $val;
+        $dat = '1234567890ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz';
         return substr(str_shuffle($dat), 0, $len);
 
     }
