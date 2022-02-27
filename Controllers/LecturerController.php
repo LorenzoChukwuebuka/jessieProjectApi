@@ -69,8 +69,35 @@ class LecturerController extends Database
     {
         //get the unique code of the student
         $res = $this->db->query("SELECT * FROM `students` WHERE `uniqueCode` = '$attendanceCode'");
-        $row = $res->fetch_assoc();
-        $studentId = $row['Id'];
+        $numRow = $res->num_rows;
+        if ($numRow > 0) {
+            $rows = $res->fetch_assoc();
+            $studentid = $rows['Id'];
+            //insert
+
+            //check if attendance has been taken for the day
+
+            $checkifattendancetaken = $this->db->query("SELECT * FROM `attendance` WHERE `student_Id` = $studentid AND `attendDate` = CURRENT_DATE()");
+            $__numrows = $checkifattendancetaken->num_rows;
+            if ($__numrows > 0) {
+                return $this->message("Attendance Taken");
+            } else {
+                $sql = $this->db->query("INSERT INTO `attendance`( `student_Id`, `courseId`, `attendance`, `attendDate`, `attendTime`) VALUES ($studentid,$courseId,'1',CURRENT_DATE(),CURRENT_TIME() )");
+                if ($sql) {
+                    return $this->message('successful');
+                } else {
+                    return $this->db->error;
+                }
+            }
+
+        } else {
+            return $this->message('Invalid Code');
+        }
+
+    }
+
+    public function getAttendance_register()
+    {
 
     }
 
