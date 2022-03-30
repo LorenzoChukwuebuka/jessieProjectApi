@@ -96,9 +96,31 @@ class LecturerController extends Database
 
     }
 
-    public function getAttendance_register()
+    public function getAttendance_register(int $id)
     {
+        $sql = $this->db->query("SELECT attendance.attendance,attendance.attendDate,attendance.attendTime,course.course,course.course_code,students.name,students.regNum FROM attendance JOIN course ON course.Id = attendance.courseId JOIN students ON students.Id = attendance.student_Id WHERE attendance.courseId = $id");
+        $numRows = $sql->num_rows;
+        while ($row = $sql->fetch_assoc()) {
+            $data[] = $row;
+        }
 
+        return $this->out($data);
     }
+
+    public function exportCSV(int $id)
+    {
+        header('Content-Type: text/csv; charset=utf-8');
+        header('Content-Disposition: attachment; filename=attendanceRegister.csv');
+        $output = fopen("php://output", "w");
+        fputcsv($output, array('Date Attended', 'Time Attended', 'Attendance', 'Course', 'Course Code', 'Name', 'Reg Num'));
+        $sql = $this->db->query("SELECT attendance.attendDate,attendance.attendTime,attendance.attendance,course.course,course.course_code,students.name,students.regNum FROM attendance JOIN course ON course.Id = attendance.courseId JOIN students ON students.Id = attendance.student_Id WHERE attendance.courseId = $id");
+        while ($row = $sql->fetch_assoc()) {
+            fputcsv($output, $row);
+        }
+
+        fclose($output);
+    }
+
+    
 
 }

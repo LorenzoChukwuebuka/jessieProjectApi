@@ -26,6 +26,11 @@ RewriteRule ^getname Views/lecturer/getname.php [NC,L]
 RewriteRule ^attendance Views/lecturer/attendance.php [NC,L]
 RewriteRule ^lectCourse Views/lecturer/lecturercourse.php [NC,L]
 RewriteRule ^studentCourse Views/lecturer/getStudents.php [NC,L]
+RewriteRule ^getRegister Views/lecturer/attendanceregister.php [NC,L]
+RewriteRule ^exportCSV Views/lecturer/getCSV.php [NC,L]
+
+
+
 
 
 

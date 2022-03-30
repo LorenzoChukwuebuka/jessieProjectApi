@@ -1,15 +1,16 @@
 <?php
-
 include_once '../../vendor/autoload.php';
-use App\AdminController;
+
+use App\LecturerController;
 use App\util;
 
 util::CORS();
-$levels = new AdminController();
+$attendance = new LecturerController();
 $Obj = util::input();
 
 $api = $_SERVER['REQUEST_METHOD'];
+$id = $_GET['id'] ?? '';
 
 if ($api === "GET") {
-    echo $levels->getlevel();
+    echo $attendance->getAttendance_register($id);
 }
