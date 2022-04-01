@@ -15,7 +15,7 @@ class LecturerController extends Database
         $data = [];
         if ($numRows > 0) {
             while ($row = $sql->fetch_assoc()) {
-                array_push($data, $row);
+                $data = $row;
             }
 
             return $this->out($data);
@@ -42,7 +42,7 @@ class LecturerController extends Database
         $data = [];
         if ($numRows > 0) {
             while ($rows = $sql->fetch_assoc()) {
-                array_push($data, $rows);
+                $data = $rows;
             }
 
             return $this->out($data);
@@ -56,9 +56,9 @@ class LecturerController extends Database
         $sql = $this->db->query(" SELECT student_course.Id, students.name,students.regNum,course.course,course.course_code FROM student_course JOIN students ON students.Id = student_course.student_Id JOIN course ON course.Id = student_course.courseId WHERE student_course.courseId = $id ");
         $numRows = $sql->num_rows;
         if ($numRows > 0) {
-
+            $data = [];
             while ($row = $sql->fetch_assoc()) {
-                $data[] = $row;
+                $data = $row;
             }
 
             return $this->out($data);
@@ -120,7 +120,5 @@ class LecturerController extends Database
 
         fclose($output);
     }
-
-    
 
 }

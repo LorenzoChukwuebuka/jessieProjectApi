@@ -6,18 +6,17 @@ use App\util;
 
 class AdminController extends Database
 {
-    public function login($user, $pass): string
+    public function login($user, $pass)
     {
         $res = $this->db->query("SELECT * FROM `user` WHERE `username`='$user' AND `password`='$pass' ");
         $numRows = $res->num_rows;
 
         if ($numRows > 0) {
             $rw = $res->fetch_assoc();
-            $data = [];
 
-            array_push($data, $rw);
+            $data[] = $rw;
 
-            return $this->out($data);
+            return \json_encode($data);
 
         } else {
             return $this->message('Invalid details');
@@ -58,7 +57,7 @@ class AdminController extends Database
         if ($numRows > 0) {
             $data = [];
             while ($row = $res->fetch_assoc()) {
-                array_push($data, $row);
+                $data = $row;
 
             }
 
@@ -117,7 +116,7 @@ class AdminController extends Database
                 $data = [];
 
                 while ($row = $res->fetch_assoc()) {
-                    array_push($data, $row);
+                    $data = $row;
                 }
                 return $this->out($data);
             }
@@ -131,7 +130,7 @@ class AdminController extends Database
                 $data = [];
 
                 while ($rw = $res->fetch_assoc()) {
-                    array_push($data, $rw);
+                    $data = $rw;
                 }
                 return $this->out($data);
             }
@@ -185,7 +184,7 @@ class AdminController extends Database
         if ($numRows > 0) {
             $data = [];
             while ($rw = $res->fetch_assoc()) {
-                array_push($data, $rw);
+                $data = $rw;
             }
             return $this->out($data);
         }
@@ -201,7 +200,7 @@ class AdminController extends Database
             $data = [];
 
             while ($rw = $res->fetch_assoc()) {
-                array_push($data, $rw);
+                $data = $rw;
             }
 
             return $this->out($data);
@@ -239,7 +238,7 @@ class AdminController extends Database
         if ($numRows > 0) {
             $data = [];
             while ($rw = $res->fetch_assoc()) {
-                array_push($data, $rw);
+                $data = $rw;
             }
             return $this->out($data);
         }
@@ -306,7 +305,7 @@ class AdminController extends Database
         $numRow = $res->num_rows;
 
         if ($numRow > 0) {
-            // $data = [];
+            $data = [];
 
             while ($row = $res->fetch_assoc()) {
                 $Id = $row['lid'];
@@ -315,7 +314,7 @@ class AdminController extends Database
                 $course_code = $row['course_code'];
                 $uid = $row['UID'];
 
-                $data[] = array("lid" => $Id, "course" => $course, 'courseCode' => $course_code, "name" => $name, "lecturerId" => $uid);
+                $data = array("lid" => $Id, "course" => $course, 'courseCode' => $course_code, "name" => $name, "lecturerId" => $uid);
 
             }
 

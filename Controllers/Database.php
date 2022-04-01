@@ -40,6 +40,6 @@ class Database
     }
 
     public function out($msg){
-        return json_encode($msg);
+        return json_encode([$msg]);
     }
 }
