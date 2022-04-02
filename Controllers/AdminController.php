@@ -357,6 +357,7 @@ class AdminController extends Database
         $numRows = $res->num_rows;
 
         if ($numRows > 0) {
+            $data = [];
             while ($row = $res->fetch_assoc()) {
                 $Id = $row['stid'];
                 $name = $row['name'];
@@ -364,7 +365,7 @@ class AdminController extends Database
                 $level = $row['level'];
                 $dept = $row['dept'];
 
-                $data[] = array('id' => $Id, 'name' => $name, 'regNum' => $regNum, 'level' => $level, 'dept' => $dept);
+                $data = array('id' => $Id, 'name' => $name, 'regNum' => $regNum, 'level' => $level, 'dept' => $dept);
             }
 
             return $this->out($data);

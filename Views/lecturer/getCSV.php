@@ -11,7 +11,7 @@ $Obj = util::input();
 $api = $_SERVER['REQUEST_METHOD'];
 $id = $_GET['id'] ?? '';
 
-if ($api === "POST") {
-    $id = $_POST['id'];
+if ($api === "GET") {
+
     echo $csv->exportCSV($id);
 }

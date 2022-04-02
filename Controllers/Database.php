@@ -1,6 +1,6 @@
 <?php
- namespace App;
- 
+namespace App;
+
 class Database
 {
     private $host = "localhost";
@@ -39,7 +39,8 @@ class Database
         return json_encode(['message' => $content]);
     }
 
-    public function out($msg){
+    public function out($msg)
+    {
         return json_encode([$msg]);
     }
 }
