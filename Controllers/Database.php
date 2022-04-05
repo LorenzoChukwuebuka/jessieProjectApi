@@ -5,8 +5,8 @@ class Database
 {
     private $host = "localhost";
     private $database_name = "gabby_project";
-    private $username = "root";
-    private $password = "";
+    private $username = "Lorenzo";
+    private $password = "Lorenzo";
 
     public $db;
 
